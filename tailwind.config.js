@@ -2,12 +2,11 @@
 module.exports = {
   content: [
     "./src/**/*.{html,ts}",
-    "./node_modules/flowbite/**/*.js"
   ],
   theme: {
     extend: {},
   },
-  plugins: [require("daisyui"), require('flowbite/plugin')],
+  plugins: [require("daisyui")],
 
   daisyui: {
     themes : ["night", "winter", "dracula"],
@@ -20,4 +19,7 @@ module.exports = {
     themeRoot: ":root", // The element that receives theme color CSS variables
   },
 }
+
+// npm uninstall daisyui
+// npm uninstall flowbit 
 

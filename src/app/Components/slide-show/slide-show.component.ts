@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieDataService } from '../../Service/movie-data.service';
 import { delay } from 'rxjs';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-slide-show',
   standalone: true,
   imports: [],
   templateUrl: './slide-show.component.html',
-  styleUrl: './slide-show.component.css',
+  animations: [trigger('slider-fade', [
+    transition('void => *', [style({ opacity: 0,backgroundColor : 'red' }), animate('1s', style({ opacity: 1,backgroundColor : 'yellow' }))]),
+    transition('* => void', [style({ opacity: 1 }), animate('1s', style({ opacity: 0 }))]),
+  ])]
 })
 export class SlideShowComponent implements OnInit {
-  counter: number = 1;
+  counter: number = 0;
   movieNowPlayingData: any = [];
 
   constructor(private movieService: MovieDataService) {}
@@ -20,7 +24,7 @@ export class SlideShowComponent implements OnInit {
     this.pageCounter();
   }
 
-  // methods Emmision => estimed => 2sec set time for data emission 
+  // methods Emmision => estimed => 2sec set time for data emission
   loadMovieNowPlaying(page: number) {
     this.movieService
       .getNowPlaying(page)
@@ -35,7 +39,6 @@ export class SlideShowComponent implements OnInit {
   pageCounter() {
     setInterval(() => {
       this.counter = ++this.counter % this.movieNowPlayingData.length;
-      console.log(this.counter);
     }, 5000);
   }
 }

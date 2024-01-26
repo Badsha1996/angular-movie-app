@@ -20,9 +20,12 @@ export class MovieDataService {
 
   // methods
 
-  // method for current movies now_playing 
+  // method for current movies now_playing / trending 
   getNowPlaying(page : number) {
     return this.http.get(`${this.BASE_URL}movie/now_playing?api_key=${this.API_KEY}&page=${page}&language=${this.LANGUAGE}&region=${this.REGION}`)
   }
+
+  
+
 
 }

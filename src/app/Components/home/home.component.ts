@@ -1,7 +1,7 @@
 import { Component} from '@angular/core';
 import { SlideShowComponent } from '../slide-show/slide-show.component';
 import { FooterComponent } from '../footer/footer.component';
-import { NgOptimizedImage } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { TabsComponent } from "../tabs/tabs.component";
 
 @Component({
@@ -9,7 +9,7 @@ import { TabsComponent } from "../tabs/tabs.component";
     standalone: true,
     templateUrl: './home.component.html',
     styleUrl: './home.component.css',
-    imports: [SlideShowComponent, FooterComponent, NgOptimizedImage, TabsComponent]
+    imports: [CommonModule,SlideShowComponent, FooterComponent, NgOptimizedImage, TabsComponent]
 })
 export class HomeComponent{
   

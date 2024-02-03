@@ -21,17 +21,17 @@
         tabindex="0"
         class="z-30 menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
       >
-        <li><a>Movies</a></li>
-        <li><a>TV Shows</a></li>
-        <li><a>unknown</a></li>
+        <li><a [routerLink]="['/movies']">Movies</a></li>
+        <li><a [routerLink]="['/tvshows']">TV Shows</a></li>
+        <li><a [routerLink]="['/movies']">unknown</a></li>
       </ul>
     </div>
-    <a class="btn btn-ghost text-xl">MovieApp</a>
+    <a class="btn btn-ghost text-xl" [routerLink]="['/']" >MovieApp</a>
   </div>
   <div class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1">
-      <li><a>Movies</a></li>
-      <li><a>TV Shows</a></li>
+      <li><a [routerLink]="['/movies']">Movies</a></li>
+      <li><a [routerLink]="['/tvshows']">TV Shows</a></li>
       <li><a>Item 3</a></li>
     </ul>
   </div>
@@ -45,19 +45,5 @@
         />
       </div>
     </div>
-
-    <ul
-      tabindex="0"
-      class="menu menu-sm dropdown-content mt-3 z-30 p-2 shadow bg-base-100 rounded-box w-52"
-    >
-      <li>
-        <a class="justify-between">
-          Profile
-          <span class="badge">New</span>
-        </a>
-      </li>
-      <li><a>Settings</a></li>
-      <li><a>Logout</a></li>
-    </ul>
   </div>
 </div>

@@ -1,19 +1,28 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './Pages/home/home.component';
-import { MoviesComponent } from './Pages/movies/movies.component';
-import { TvShowsComponent } from './Pages/tv-shows/tv-shows.component';
 
 export const routes: Routes = [
-    {
-        path: "",
-        component : HomeComponent
-    },
-    {
-        path: "movies",
-        component : MoviesComponent
-    },
-    {
-        path: "tvshows",
-        component: TvShowsComponent
-    }
+  {
+    path: '',
+    component: HomeComponent,
+  },
+  {
+    path: 'movies',
+    loadComponent: () =>
+      import('./Pages/movies/movies.component').then((m) => m.MoviesComponent),
+  },
+  {
+    path: 'tvshows',
+    loadComponent: () =>
+      import('./Pages/tv-shows/tv-shows.component').then(
+        (m) => m.TvShowsComponent
+      ),
+  },
+  {
+    path: 'movies/:id',
+    loadComponent: () =>
+      import('./Pages/movie-details/movie-details.component').then(
+        (m) => m.MovieDetailsComponent
+      ),
+  },
 ];

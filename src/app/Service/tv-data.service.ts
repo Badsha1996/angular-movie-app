@@ -16,14 +16,21 @@ export class TvDataService {
     this.REGION = 'US';
   }
 
-  getTvOnAir(page : number){
-    return this.http.get(`${this.BASE_URL}tv/on_the_air?api_key=${this.API_KEY}&page=${page}&language=${this.LANGUAGE}&region=${this.REGION}`)
+  getTvOnAir(page: number) {
+    return this.http.get(
+      `${this.BASE_URL}tv/on_the_air?api_key=${this.API_KEY}&page=${page}&language=${this.LANGUAGE}&region=${this.REGION}`
+    );
   }
 
-  seachTvShows(searchStr: string | null){
-    return this.http.get(`${this.BASE_URL}search/tv?api_key=${this.API_KEY}&query=${searchStr}`)
+  seachTvShows(searchStr: string | null) {
+    return this.http.get(
+      `${this.BASE_URL}search/tv?api_key=${this.API_KEY}&query=${searchStr}`
+    );
   }
 
+  getTopRatedTvShows(page: number) {
+    return this.http.get(
+      `${this.BASE_URL}tv/top_rated?api_key=${this.API_KEY}&page=${page}&language=${this.LANGUAGE}&region=${this.REGION}`
+    );
+  }
 }
-
-

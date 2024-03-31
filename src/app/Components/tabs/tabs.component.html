@@ -3,7 +3,7 @@
   }@else{
   
   <div
-    class="border rounded relative top-1 bottom-1 border-gray-600 max-w-xl m-auto"
+    class="border rounded relative top-1 bottom-1 border-gray-700 max-w-xl m-auto "
   >
     <div role="tablist" class="tabs tabs-boxed">
       <a
@@ -26,11 +26,11 @@
   <!-- Under Tab content -->
   @if(tabLabel == 'Movies'){
   <div
-    class="border transition duration-200 ease-in rounded border-gray-600 mt-2 p-2 flex flex-wrap justify-around flex-row md:gap-1"
+    class="border transition duration-200 ease-in rounded border-gray-700 mt-2 p-2 flex flex-wrap justify-around flex-row md:gap-1"
   >
     @for(movie of trendingMovies;track movie.title; let i = $index){ @if(i<8){
     <div
-      class="w-[45%] h-1/2 md:w-1/5 md:h-1/2 mb-4 border border-gray-900 rounded-lg shadow-lg shadow-gray-600 relative"
+      class="w-[45%] h-1/2 md:w-1/5 md:h-1/2 mb-4 border border-gray-700 rounded-lg shadow-lg relative"
     >
       <img
         class="h-full w-full aspect-square block bg-origin-padding bg-left-top bg-cover bg-no-repeat z-0"
@@ -48,7 +48,7 @@
         }
       </div>
       <div
-        class="border absolute pl-2 pr-2 rounded bg-slate-800 top-1 left-1 flex"
+        class="border absolute pl-2 pr-2 rounded bg-slate-950 top-1 left-1 flex"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -71,11 +71,11 @@
   
   }@else{
   <div
-    class="border transition duration-200 ease-in rounded border-gray-600 mt-2 p-2 flex flex-wrap justify-around flex-row md:gap-1"
+    class="border transition duration-200 ease-in rounded border-gray-700 mt-2 p-2 flex flex-wrap justify-around flex-row md:gap-1"
   >
     @for(tvShow of trendingTvShows;track tvShow.name; let i = $index){ @if(i<8){
     <div
-      class="w-[45%] h-1/2 md:w-1/5 md:h-1/2 mb-4 border border-gray-900 rounded-lg shadow-lg shadow-gray-600 relative"
+      class="w-[45%] h-1/2 md:w-1/5 md:h-1/2 mb-4 border border-gray-700 rounded-lg shadow-lg  relative"
     >
       <img
         class="h-full w-full aspect-square block bg-origin-padding bg-left-top bg-cover bg-no-repeat z-0"
@@ -93,7 +93,7 @@
         }
       </div>
       <div
-        class="border absolute pl-2 pr-2 rounded bg-slate-800 top-1 left-1 flex"
+        class="border absolute pl-2 pr-2 rounded bg-slate-950 top-1 left-1 flex"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

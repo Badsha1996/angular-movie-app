@@ -2,6 +2,10 @@
   <div class="m-4">
     @if(searchRes==null){
     <h1 class="font-semibold">All Movies</h1>
+    }@else if(searchRes==''){
+    <h1 class="font-semibold text-red-600">You are not searching anything</h1>
+    }@else if(searchRes!=null && searchString==null){
+    <h1 class="font-semibold">All Movies</h1>
     }@else{
     <h1 class="font-semibold">
       Search result for
@@ -29,13 +33,38 @@
     </form>
   </div>
 
-  
+  @if(loader){
+  <app-skeleton></app-skeleton>
+  }@else{
   <div class="m-4 flex justify-between flex-wrap md:gap-2">
     @for(movie of searchRes; track movie.title){
 
     <div
-      class="w-[45%] h-1/2 md:w-1/5 md:h-1/2 mb-4 border border-gray-900 rounded-lg shadow-lg shadow-gray-600 relative"
+      class="group w-[45%] relative h-1/2 md:w-1/5 md:h-1/2 mb-4 border border-gray-700 rounded-lg"
     >
+      <div
+        class="invisible group-hover:visible flex gap-1 absolute bottom-10 left-2"
+        [routerLink]="['/movies/', movie.id]"
+      >
+        <button class="uppercase btn bg-red-500 border-none rounded">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
+            />
+          </svg>
+          Play Now
+        </button>
+      </div>
+
       @if(!movie?.backdrop_path){
       <img
         class="h-full w-full aspect-square block bg-origin-padding bg-left-top bg-cover bg-no-repeat z-0"
@@ -56,12 +85,10 @@
       />
       }
 
-      <div class="ml-1 p-1 font-bold">
-        @if(movie.title.length>20){
-        <div>{{ movie.title.slice(0, 20) }}....</div>
-        }@else{
-        <div>{{ movie.title }}</div>
-        }
+      <div
+        class="ml-1 p-1 font-bold text-ellipsis whitespace-nowrap overflow-hidden"
+      >
+        {{ movie.title }}
       </div>
       <div
         class="border absolute pl-2 pr-2 rounded bg-slate-800 top-1 left-1 flex"
@@ -83,8 +110,13 @@
       </div>
     </div>
 
+    } @if(searchString==null){
+    <div class="join grid grid-cols-2 w-1/3 m-auto">
+      <button class="join-item btn btn-outline">Previous page</button>
+      <button class="join-item btn btn-outline">Next</button>
+    </div>
     }
   </div>
-  
+  }
 </div>
 <app-footer></app-footer>
